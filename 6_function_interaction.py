@@ -16,6 +16,20 @@
 # "The sum of your dice is {sum_dice}. It looks like a winning roll"
 
 # Hint: use the random library's choice or randint method to choose a random value between 1 and 6.
+import random
+
+def throw_dice():
+    return random.randint(1, 6), random.randint(1, 6)
+
+def roll_result(d1, d2):
+    sum_dice = d1 + d2
+    if sum_dice <= 6:
+        return f"The sum of your dice is {sum_dice}. Unfortunate"
+    elif sum_dice < 10:
+        return f"The sum of your dice is {sum_dice}. You have a good chance"
+    else:
+        return f"The sum of your dice is {sum_dice}. It looks like a winning roll"
+
 
 
 
@@ -25,7 +39,19 @@
 # For example, if given the list [1,2,15,7,2] it should return [1,2,7].
 
 # Create a function called average() that can receive as an argument the list returned by the previous function, and that calculates the average of its values. It should return the result (a float), without printing it.
+def reduce_list(numbers):
+    unique_numbers = set(numbers)
+    unique_list = list(unique_numbers)
+    max_value = max(unique_list)
+    unique_list.remove(max_value)
+    return unique_list
 
+def average(numbers):
+    if not numbers:
+        return 0.0
+    total = sum(numbers)
+    count = len(numbers)
+    return float(total) / count
 # \
 # Interactions Between Functions Practice #3
 # You must create a list with values and call it secret_codes.
@@ -40,6 +66,26 @@
 
 # Hint: Use the random library's choice method to choose an element at random from a sequence.
 
+import random
 
+def toss_coin():
+    return random.choice(["Heads", "Tails"])
+
+def luck(toss_result, secret_codes):
+    if toss_result == "Tails":
+        print("List will self-destruct")
+        return []
+    else:
+        print("List was saved")
+        return secret_codes
+
+secret_codes = [1, 2, 3, 4, 5]
+
+coin_result = toss_coin()
+updated_codes = luck(coin_result, secret_codes)
+
+print(f"Original list: {secret_codes}")
+print(f"Coin toss result: {coin_result}")
+print(f"Updated list: {updated_codes}")
 
 
