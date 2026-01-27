@@ -27,7 +27,6 @@ def welcome(name):
 # Create Functions Practice #3
 # Declare a function called square, that takes any number as an parameter   time it is called, it prints the square of that number on the screen (that is, the value to the second power).
 def square(number):
-  """Calculates and prints the square of a given number."""
   y = number ** 2
   print(f"The square of {number} is {y}")
 square(20)
